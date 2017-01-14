@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" > 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title> Vianocne slzy!!</title>
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.css" />
+		<style>
+			#swipe_it{
+				width: 100%;
+				background: -webkit-linear-gradient(#0066CC, #A6CAED); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(#0066CC, #A6CAED); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(#0066CC, #A6CAED); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(#0066CC, #A6CAED);
+			}
+			
+			@media screen and (min-width: 431px){
+				#swipe_it{
+				display: none
+			}
+			}
+			.swipe_mobile{
+				color: white;
+				font-size: 200px;
+				text-align: center;
+			}
+			#videoFrame{
+				display: none;
+			}
+		
+		</style>
+		<script src="javascripts/jquery-2.2.3.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<!-- 	<script src="javascripts/hammer.min.js"></script> -->
+		<script>
+		</script>
+    </head>
+    <body>
+        <div class="container">
+		
+			<!--dat to do 3D fontu-->
+			
+			
+			<section class="main">
+			<!--<div class="enjoy-css">Raspberry PI</div>
+<link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>	-->
+				
+				<center>
+					<div class="switch demo4">
+						<input type="checkbox" class="event_button" id="on" onclick="checkOut()">
+						<label><i class='icon-off icon-power-off '></i></label>
+					</div>
+				</center>
+				
+				
+				
+				
+			</section>
+			
+			
+        </div>
+
+		<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.3.3.js"></script>
+		<script>
+		
+		function publish() {
+   
+    pubnub = new PubNub({
+        publishKey : 'YOUR-PUBLISH-KEY',
+        subscribeKey : 'YOUR-SUBSCRIBE-KEY'
+    })
+              
+    console.log("Subscribing..");
+};
+publish();
+
+    //publishSampleMessage();
+ function checkOut() {
+ 			msg = 1;
+ 		console.log("Since we're publishing on subscribe connectEvent, we're sure we'll receive the following publish.");
+        var publishConfig = {
+            channel : "YOUR-CHANNEL",
+            message : 1
+        }
+        pubnub.publish(publishConfig, function(status, response) {
+            console.log(status, response);
+        })
+    }
+
+	
+		</script>
+    </body>
+</html>
